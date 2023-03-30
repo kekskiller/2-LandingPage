@@ -1,33 +1,33 @@
-/* GLOBAL VARIABLES */
+/* ----- GLOBAL VARIABLES ----- */
 
 const listOfSections = document.querySelectorAll('section'); 
 const navbarList = document.querySelector('#navbar__list');
 
-/* HELPER FUNCTIONS */
+/* ----- HELPER FUNCTIONS ----- */
 
 //creates a ListItem for Navigation
 const createLink = (section) => {
+    const navName = section.getAttribute('id');
     const linkName = section.getAttribute('data-nav');
-    const link = section.getAttribute('id');
     const navElement = document.createElement('li');
-    navElement.innerHTML = `<a href="#${link}">${linkName}</a>`;
+    navElement.innerHTML = `${linkName}`;
     navElement.setAttribute('class', 'menu__link');
-
+    navElement.setAttribute('data-nav', navName)
     return navElement;
 }
 
+//evaluates position and sets className regarding
 const evaluatePosition = (section) => {
     const position = section.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     if (position.top < windowHeight*0.5 && position.bottom > windowHeight*0.5) {
-        section.className = "your-active-class";
+        section.className = "active";
     } else {
         section.className = "";
     }    
 }
 
-/* MAIN FUNCTIONS */
-
+/* ----- MAIN FUNCTIONS ----- */
 // Builds Navigation Bar
 const builtNavigation = () => {
     for (let i = 0; i < listOfSections.length; i++) {
@@ -37,7 +37,6 @@ const builtNavigation = () => {
 }
 builtNavigation()
 
-
 // Checks for Position and hieghlihgts active Section
 const highlight = () => {
 for (let i = 0; i < listOfSections.length; i++) {
@@ -45,14 +44,27 @@ for (let i = 0; i < listOfSections.length; i++) {
     evaluatePosition(section)  
   }
 }
-
 highlight();
   
 document.addEventListener("scroll", highlight);
 
 
-// Scroll to anchor ID using scrollTO event
-    // addEventListener('click',....) 
-    // preventDefault() 
-    // scroll(), scrollBy(), and scrollIntoView() 
+// Smooth scrolling
 
+const handleClick = (e) => {
+    e.preventDefault()
+    const nav = e.target.dataset.nav; 
+    document.getElementById(nav).scrollIntoView({behavior:'smooth'})
+    console.log(nav);
+}
+
+const navigation = () => {
+    const navItems = document.querySelectorAll('.menu__link');
+    for (let i = 0; i < navItems.length; i++) {
+        const navLink = navItems[i];
+        navLink.addEventListener('click', handleClick);
+        console.log(navLink) ;
+    }
+}
+
+navigation ();
