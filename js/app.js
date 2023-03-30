@@ -26,7 +26,7 @@ const evaluatePosition = (section) => {
     }    
 }
 
-const removeActiveLinks = (navItems) => {
+const removeActiveClass = (navItems) => {
     navItems.forEach((navLink) => {
         navLink.classList.remove('link_active');
     })
@@ -57,7 +57,7 @@ const handleClick = (e) => {
     const nav = e.target.dataset.nav; 
     document.getElementById(nav).scrollIntoView({behavior:'smooth'})
     const navItems = document.querySelectorAll('.menu__link');
-    removeActiveLinks(navItems)
+    removeActiveClass(navItems)
     e.target.classList.add('link_active')
 }
 
