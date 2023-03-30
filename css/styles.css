@@ -89,6 +89,11 @@ section {
     cursor: pointer;
 }
 
+.link_active {
+    background: #b7b6b6;
+    color: #fff;
+    transition: ease 0.3s all;
+}
 /* Header Styles */
 .page__header {
     background: #fff;
