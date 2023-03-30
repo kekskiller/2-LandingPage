@@ -55,7 +55,6 @@ const handleClick = (e) => {
     e.preventDefault()
     const nav = e.target.dataset.nav; 
     document.getElementById(nav).scrollIntoView({behavior:'smooth'})
-    console.log(nav);
 }
 
 const navigation = () => {
@@ -63,7 +62,6 @@ const navigation = () => {
     for (let i = 0; i < navItems.length; i++) {
         const navLink = navItems[i];
         navLink.addEventListener('click', handleClick);
-        console.log(navLink) ;
     }
 }
 
