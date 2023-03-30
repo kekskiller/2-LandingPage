@@ -26,15 +26,20 @@ const evaluatePosition = (section) => {
     }    
 }
 
+const removeActiveLinks = (navItems) => {
+    navItems.forEach((navLink) => {
+        navLink.classList.remove('link_active');
+    })
+}
+
 /* ----- MAIN FUNCTIONS ----- */
 // Builds Navigation Bar
-
-const builtNavigation = () => {
+const buildNavigation = () => {
     listOfSections.forEach((section) => {
         navbarList.appendChild(createLink(section))
     })     
 }
-builtNavigation()
+buildNavigation()
 
 // Checks for Position and hieghlihgts active Section
 const highlight = () => {
@@ -51,6 +56,9 @@ const handleClick = (e) => {
     e.preventDefault()
     const nav = e.target.dataset.nav; 
     document.getElementById(nav).scrollIntoView({behavior:'smooth'})
+    const navItems = document.querySelectorAll('.menu__link');
+    removeActiveLinks(navItems)
+    e.target.classList.add('link_active')
 }
 
 const navigation = () => {
