@@ -28,21 +28,21 @@ const evaluatePosition = (section) => {
 
 /* ----- MAIN FUNCTIONS ----- */
 // Builds Navigation Bar
+
 const builtNavigation = () => {
-    for (let i = 0; i < listOfSections.length; i++) {
-        const section = listOfSections[i];        
+    listOfSections.forEach((section) => {
         navbarList.appendChild(createLink(section))
-      }
+    })     
 }
 builtNavigation()
 
 // Checks for Position and hieghlihgts active Section
 const highlight = () => {
-for (let i = 0; i < listOfSections.length; i++) {
-    const section = listOfSections[i];        
-    evaluatePosition(section)  
+    listOfSections.forEach((section) => {
+        evaluatePosition(section) 
+    }) 
   }
-}
+
 highlight();  
 document.addEventListener("scroll", highlight);
 
@@ -55,10 +55,9 @@ const handleClick = (e) => {
 
 const navigation = () => {
     const navItems = document.querySelectorAll('.menu__link');
-    for (let i = 0; i < navItems.length; i++) {
-        const navLink = navItems[i];
+    navItems.forEach((navLink) => {
         navLink.addEventListener('click', handleClick);
-    }
+    })
 }
 
 navigation ();
