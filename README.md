@@ -2,14 +2,22 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Description](#description)
+* [Usage](#usage)
+* [Tech](#tech)
 
-## Instructions
+## Description
+This project displays the usage of JavaScript to create an dynamic and interactive Landing Page.
+The functionality that sets a huge difference to static pages are the following: 
+ - The Navigation Bar on the top is created dynamically depending on the sections of content 
+ - while scrolling through through the page the section which is in viewpoint is highlighted 
+ - When clicking on a Link in the Navbar, a smooth scrolling animations transports the user to the selected page instead of a hard jump and guarantees an enjoyable user experience
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. 
-You'll need to convert this project from a static project to an interactive one. 
-This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Usage
+To run this code on your machine you simply need to download or clone this repository
+In case you want to add more sections, simply add them to the html following the given structure
 
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Tech
+ - HTML
+ - CSS
+ - JS

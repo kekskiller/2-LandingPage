@@ -4,7 +4,6 @@ const listOfSections = document.querySelectorAll('section');
 const navbarList = document.querySelector('#navbar__list');
 
 /* ----- HELPER FUNCTIONS ----- */
-
 //creates a ListItem for Navigation
 const createLink = (section) => {
     const navName = section.getAttribute('id');
@@ -44,13 +43,10 @@ for (let i = 0; i < listOfSections.length; i++) {
     evaluatePosition(section)  
   }
 }
-highlight();
-  
+highlight();  
 document.addEventListener("scroll", highlight);
 
-
 // Smooth scrolling
-
 const handleClick = (e) => {
     e.preventDefault()
     const nav = e.target.dataset.nav; 
